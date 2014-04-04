@@ -56,15 +56,3 @@ a `m_compare` b
     | a == b = a
     | otherwise = b
 
--- WHERE
-bmiTell3 :: (RealFloat a) => a -> a -> String
-bmiTell3 weight height
-    | bmi <= skinny = "You are underweight"
-    | bmi <= normal = "You are normal"
-    | bmi <= fat = "You are fat"
-    | otherwise = "You are a whale, congratulations"
-    where bmi    = weight / height ^ 2
-          skinny = 18.5
-          normal = 25.0
-          fat    = 30.0
-
