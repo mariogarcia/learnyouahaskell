@@ -68,3 +68,22 @@ bmiTell3 weight height
           normal = 25.0
           fat    = 30.0
 
+
+howOldAmI :: (RealFloat edad) => edad -> String
+howOldAmI edad
+    | edad <= 16 = "Eres muy pequeño"
+    | edad <= 18 = "Eres mayor"
+    | otherwise = "I dont know"
+
+initials :: String -> String -> String
+initials firstname lastname = [f] ++ ". " ++ [l] ++ "."
+    where (f:_) = firstname
+          (l:_) = lastname
+
+initialsForFirstName :: String -> String
+initialsForFirstName firstName = [f] ++ "."
+    where (f:_) = firstName
+
+initialsForManyPeople :: [String] -> [String]
+initialsForManyPeople xs = [initialsForFirstName x | x <- xs] 
+
