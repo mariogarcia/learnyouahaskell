@@ -16,13 +16,23 @@ rsum [] = 0
 rsum [a] = a
 rsum (x:xs) = x + rsum(xs)
 
+-- This method takes a given number of numbers
+-- from a given list
 rtake :: (Num i, Ord i) => i -> [a] -> [a]
 rtake n _
     | n <= 0 = []
 rtake _ [] = []
 rtake n (x:xs) = x : rtake (n - 1) xs
 
+-- This method returns a given list in inverse order
 rreverse :: [a] -> [a]
 rreverse [] = []
 rreverse (x:xs) = rreverse xs ++ [x]
 
+rrepeat :: a -> [a]
+rrepeat x = x:repeat x
+
+rzip :: [a] -> [b] -> [(a, b)]
+rzip _ [] = []
+rzip [] _ = []
+rzip (x:xs) (y:ys) = (x, y):zip xs ys
