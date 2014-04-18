@@ -29,10 +29,15 @@ rreverse :: [a] -> [a]
 rreverse [] = []
 rreverse (x:xs) = rreverse xs ++ [x]
 
+-- Repeating a number infinitely (It's helpful when
+-- combining with let's say take(5, (rrpeat(3)))
 rrepeat :: a -> [a]
 rrepeat x = x:repeat x
 
+-- Combine elements of two different collections
 rzip :: [a] -> [b] -> [(a, b)]
 rzip _ [] = []
 rzip [] _ = []
 rzip (x:xs) (y:ys) = (x, y):zip xs ys
+
+
