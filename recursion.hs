@@ -40,4 +40,9 @@ rzip _ [] = []
 rzip [] _ = []
 rzip (x:xs) (y:ys) = (x, y):zip xs ys
 
+relem :: (Eq a) => a -> [a] -> Bool
+relem a [] = False
+relem a (x:xs)
+    | a == x = True
+    | otherwise = a `relem` xs
 
