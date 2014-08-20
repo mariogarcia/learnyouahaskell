@@ -1,4 +1,5 @@
 import Data.Char
+import Control.Monad
 
 main = do
     putStrLn "Hello, What is your name?"
@@ -30,3 +31,14 @@ returnisfunny = do
     b <- return "b"
     c <- getLine
     putStrLn (a ++ b ++ c)
+
+usingwhen = do
+    value <- getLine
+    when (value == "lala") $ do
+        putStrLn value
+
+notusingwhen = do
+    value <- getLine 
+    if (value == "lala")
+        then putStrLn value
+        else return ()
