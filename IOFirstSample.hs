@@ -52,3 +52,13 @@ notusingsequence = do
 usingsequence = do
     rs <- sequence [getLine, getLine, getLine]
     print rs
+
+usingform = do
+    colors <- forM [1..4] (\a -> do
+        putStrLn $ "Which color do you associate to the number " ++ show a ++ "?" 
+        color <- getLine 
+        return color)
+    putStrLn "The colors that you associated with 1, 2, 3, 4 are: "
+    mapM_ putStrLn colors
+    
+
