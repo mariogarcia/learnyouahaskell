@@ -42,3 +42,13 @@ notusingwhen = do
     if (value == "lala")
         then putStrLn value
         else return ()
+
+notusingsequence = do
+    a <- getLine
+    b <- getLine
+    c <- getLine 
+    print [a,b,c]
+
+usingsequence = do
+    rs <- sequence [getLine, getLine, getLine]
+    print rs
