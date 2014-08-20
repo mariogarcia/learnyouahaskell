@@ -13,3 +13,20 @@ notmain = do
     let upperName = map toUpper name 
     let message = "Well " ++ name ++ " although you are " ++ age ++ " you are not that bad"
     putStrLn message
+
+inreverse = do
+    line <- getLine
+    if null line 
+        then return ()
+        else do
+            putStrLn $ reverseWords line
+            inreverse 
+
+reverseWords :: String -> String
+reverseWords = unwords . map reverse . words
+
+returnisfunny = do
+    a <- return "a"
+    b <- return "b"
+    c <- getLine
+    putStrLn (a ++ b ++ c)
