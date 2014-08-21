@@ -61,4 +61,26 @@ usingform = do
     putStrLn "The colors that you associated with 1, 2, 3, 4 are: "
     mapM_ putStrLn colors
     
+usinggetcontents = do
+    contents <- getContents
+    putStr $ map toUpper contents
 
+usinggetcontents2 = do
+    contents <- getContents
+    putStr (shortLinesOnly contents)
+
+shortLinesOnly :: String -> String
+shortLinesOnly = unlines . filter  (\line -> length line  < 10 ) . lines
+
+usinggetcontents3 = interact shortLinesOnly
+
+respondPalindromes :: String -> String
+respondPalindromes = 
+    unlines .
+    map (\xs -> if isPal xs then "palindrome" else "not a palindrome") .
+    lines
+
+isPal :: String -> Bool
+isPal xs = xs == reverse xs
+
+tellmeifpalindrome = interact respondPalindromes
